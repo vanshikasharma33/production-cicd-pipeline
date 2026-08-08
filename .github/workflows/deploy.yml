@@ -1,0 +1,23 @@
+name: Production CI/CD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build Docker image
+        run: docker build -t production-dashboard:test ./app
+
+      - name: Run container
+        run: docker run -d -p 3000:3000 --name test-container production-dashboard:test
+
+      - name: Test application
+        run: curl --fail http://localhost:3000
