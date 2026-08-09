@@ -1,4 +1,4 @@
-name: Production CI/CD
+name: Deploy to EC2
 
 on:
   push:
@@ -6,20 +6,21 @@ on:
       - main
 
 jobs:
-  build-and-test:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Build Docker image
-        run: docker build -t production-dashboard:test ./app
-
-      - name: Run container
-        run: docker run -d -p 3000:3000 --name test-container production-dashboard:test
-
-      - name: Test application
-        run: |
-          sleep 5
-          curl --fail http://localhost:3000
+      - name: Deploy to EC2
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            cd ~/production-cicd-pipeline
+            git pull origin main
+            docker compose down
+            docker compose up -d --build
