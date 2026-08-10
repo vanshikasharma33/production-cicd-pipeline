@@ -1,23 +1,187 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Production CI/CD Dashboard</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Production CI/CD Dashboard</title>
 
-    <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="/style.css" />
 </head>
+
 <body>
-
-    <div class="container">
-        <h1>🚀 Production CI/CD Dashboard</h1>
-
-        <p>Deployed automatically with GitHub Actions</p>
-
-        <button>Check Status</button>
+  <header class="navbar">
+    <div class="logo">
+      <span class="logo-dot"></span>
+      ProductionFlow
     </div>
 
-    <script src="script.js"></script>
+    <div class="status">
+      <span class="status-dot"></span>
+      System Operational
+    </div>
+  </header>
 
+  <main>
+    <section class="hero">
+      <div class="badge">CI/CD + CLOUD MONITORING</div>
+
+      <h1>
+        Production CI/CD
+        <span>Monitoring Platform</span>
+      </h1>
+
+      <p>
+        A production-ready application deployed with Docker and automated
+        through GitHub Actions, with real-time infrastructure monitoring
+        using Prometheus and Grafana.
+      </p>
+
+      <div class="actions">
+        <a href="#architecture" class="btn primary">Explore Platform</a>
+        <a href="#monitoring" class="btn secondary">View Monitoring</a>
+      </div>
+    </section>
+
+    <section class="stats">
+      <div class="stat-card">
+        <div class="stat-icon">🚀</div>
+        <div>
+          <strong>Automated</strong>
+          <span>CI/CD Deployment</span>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon">🐳</div>
+        <div>
+          <strong>Dockerized</strong>
+          <span>Containerized Application</span>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon">📊</div>
+        <div>
+          <strong>Real-Time</strong>
+          <span>Infrastructure Metrics</span>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon">🔔</div>
+        <div>
+          <strong>Alerting</strong>
+          <span>Proactive Monitoring</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="architecture" class="section">
+      <div class="section-heading">
+        <span>01</span>
+        <div>
+          <h2>Deployment Architecture</h2>
+          <p>From code commit to production deployment.</p>
+        </div>
+      </div>
+
+      <div class="pipeline">
+        <div class="pipeline-step">
+          <div class="number">01</div>
+          <h3>GitHub</h3>
+          <p>Code pushed to the main branch.</p>
+        </div>
+
+        <div class="arrow">→</div>
+
+        <div class="pipeline-step">
+          <div class="number">02</div>
+          <h3>GitHub Actions</h3>
+          <p>Build, test and deployment automation.</p>
+        </div>
+
+        <div class="arrow">→</div>
+
+        <div class="pipeline-step">
+          <div class="number">03</div>
+          <h3>EC2</h3>
+          <p>Application deployed on AWS infrastructure.</p>
+        </div>
+
+        <div class="arrow">→</div>
+
+        <div class="pipeline-step">
+          <div class="number">04</div>
+          <h3>Docker</h3>
+          <p>Application runs in isolated containers.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="monitoring" class="section monitoring">
+      <div class="section-heading">
+        <span>02</span>
+        <div>
+          <h2>Infrastructure Monitoring</h2>
+          <p>Observability powered by Prometheus and Grafana.</p>
+        </div>
+      </div>
+
+      <div class="monitor-grid">
+        <div class="monitor-card">
+          <div class="card-top">
+            <span>CPU</span>
+            <span class="live">LIVE</span>
+          </div>
+          <h3>CPU Usage</h3>
+          <p>Track processor utilization in real time.</p>
+        </div>
+
+        <div class="monitor-card">
+          <div class="card-top">
+            <span>MEMORY</span>
+            <span class="live">LIVE</span>
+          </div>
+          <h3>Memory Usage</h3>
+          <p>Monitor available and consumed system memory.</p>
+        </div>
+
+        <div class="monitor-card">
+          <div class="card-top">
+            <span>STORAGE</span>
+            <span class="live">LIVE</span>
+          </div>
+          <h3>Disk Usage</h3>
+          <p>Keep track of filesystem capacity and usage.</p>
+        </div>
+
+        <div class="monitor-card">
+          <div class="card-top">
+            <span>HEALTH</span>
+            <span class="live">LIVE</span>
+          </div>
+          <h3>Node Exporter</h3>
+          <p>Monitor infrastructure health and availability.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="tech-stack">
+      <span>AWS</span>
+      <span>Docker</span>
+      <span>GitHub Actions</span>
+      <span>Nginx</span>
+      <span>Prometheus</span>
+      <span>Grafana</span>
+      <span>Node Exporter</span>
+    </section>
+  </main>
+
+  <footer>
+    <p>Production CI/CD + Monitoring Platform</p>
+    <span>Built with AWS · Docker · GitHub Actions · Prometheus · Grafana</span>
+  </footer>
+
+  <script src="/script.js"></script>
 </body>
 </html>
