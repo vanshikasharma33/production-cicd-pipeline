@@ -1,187 +1,497 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Production CI/CD Dashboard</title>
 
-  <link rel="stylesheet" href="/style.css" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Production Infrastructure Monitoring</title>
+
+    <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
-  <header class="navbar">
-    <div class="logo">
-      <span class="logo-dot"></span>
-      ProductionFlow
-    </div>
+<body>  
 
-    <div class="status">
-      <span class="status-dot"></span>
-      System Operational
-    </div>
-  </header>
 
-  <main>
-    <section class="hero">
-      <div class="badge">CI/CD + CLOUD MONITORING</div>
+    <!-- ================= NAVIGATION ================= -->
 
-      <h1>
-        Production CI/CD
-        <span>Monitoring Platform</span>
-      </h1>
+    <nav class="nav">
 
-      <p>
-        A production-ready application deployed with Docker and automated
-        through GitHub Actions, with real-time infrastructure monitoring
-        using Prometheus and Grafana.
-      </p>
+        <a href="#monitoring">Monitoring</a>
+        <a href="#alerting">Alerting</a>
+        <a href="#architecture">Architecture</a>
+        <a href="#stack">Technology Stack</a>
 
-      <div class="actions">
-        <a href="#architecture" class="btn primary">Explore Platform</a>
-        <a href="#monitoring" class="btn secondary">View Monitoring</a>
-      </div>
-    </section>
+    </nav>
 
-    <section class="stats">
-      <div class="stat-card">
-        <div class="stat-icon">🚀</div>
+
+    <!-- ================= MONITORING ================= -->
+
+    <main>
+
+        <section id="monitoring" class="section">
+
+            <div class="section-heading">
+
+                <div>
+                    <p class="section-label">01 • OBSERVABILITY</p>
+
+                    <h2>Infrastructure Metrics</h2>
+
+                    <p>
+                        Monitor CPU, memory, storage and network activity
+                        from the production server in real time.
+                    </p>
+                </div>
+
+                <div class="live-badge">
+                    <span class="status-dot"></span>
+                    LIVE
+                </div>
+
+            </div>
+
+
+            <div class="monitor-grid">
+
+
+                <!-- CPU -->
+
+                <article class="monitor-card">
+
+                    <div class="card-top">
+
+                        <div>
+                            <span class="metric-label">CPU</span>
+                            <h3>CPU Usage</h3>
+                        </div>
+
+                        <span class="metric-status">LIVE</span>
+
+                    </div>
+
+                    <p class="card-description">
+                        Track processor utilization in real time.
+                    </p>
+
+                    <iframe
+                        class="grafana-panel"
+                        src="http://13.50.250.84:3002/d-solo/ad52677/new-dashboard?orgId=1&from=now-6h&to=now&timezone=browser&var-datasource0=prometheus&panelId=panel-1&refresh=10s"
+                        frameborder="0">
+                    </iframe>
+
+                </article>
+
+
+                <!-- MEMORY -->
+
+                <article class="monitor-card">
+
+                    <div class="card-top">
+
+                        <div>
+                            <span class="metric-label">MEMORY</span>
+                            <h3>Memory Usage</h3>
+                        </div>
+
+                        <span class="metric-status">LIVE</span>
+
+                    </div>
+
+                    <p class="card-description">
+                        Monitor system memory utilization in real time.
+                    </p>
+
+                    <iframe
+                        class="grafana-panel"
+                        src="http://13.50.250.84:3002/d-solo/ad52677/new-dashboard?orgId=1&from=now-6h&to=now&timezone=browser&var-datasource0=prometheus&panelId=panel-2&refresh=10s"
+                        frameborder="0">
+                    </iframe>
+
+                </article>
+
+
+                <!-- DISK -->
+
+                <article class="monitor-card">
+
+                    <div class="card-top">
+
+                        <div>
+                            <span class="metric-label">STORAGE</span>
+                            <h3>Disk Usage</h3>
+                        </div>
+
+                        <span class="metric-status">LIVE</span>
+
+                    </div>
+
+                    <p class="card-description">
+                        Monitor filesystem utilization across the server.
+                    </p>
+
+                    <iframe
+                        class="grafana-panel"
+                        src="http://13.50.250.84:3002/d-solo/ad52677/new-dashboard?orgId=1&from=now-6h&to=now&timezone=browser&var-datasource0=prometheus&panelId=panel-3&refresh=10s"
+                        frameborder="0">
+                    </iframe>
+
+                </article>
+
+
+                <!-- NETWORK -->
+
+                <article class="monitor-card">
+
+                    <div class="card-top">
+
+                        <div>
+                            <span class="metric-label">NETWORK</span>
+                            <h3>Network Traffic</h3>
+                        </div>
+
+                        <span class="metric-status">LIVE</span>
+
+                    </div>
+
+                    <p class="card-description">
+                        Monitor incoming network traffic across the infrastructure.
+                    </p>
+
+                    <iframe
+                        class="grafana-panel"
+                        src="http://13.50.250.84:3002/d-solo/ad52677/new-dashboard?orgId=1&from=now-6h&to=now&timezone=browser&var-datasource0=prometheus&panelId=panel-4&refresh=10s"
+                        frameborder="0">
+                    </iframe>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= ALERTING ================= -->
+
+        <section id="alerting" class="section alerting-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <p class="section-label">02 • ALERTING</p>
+
+                    <h2>Alertmanager</h2>
+
+                    <p>
+                        Detect infrastructure problems and deliver
+                        real-time email notifications when alert rules fire.
+                    </p>
+                </div>
+
+                <div class="live-badge">
+                    <span class="status-dot"></span>
+                    ONLINE
+                </div>
+
+            </div>
+
+
+            <div class="alert-grid">
+
+
+                <!-- ALERTMANAGER STATUS -->
+
+                <article class="alert-card">
+
+                    <span class="metric-label">
+                        ALERTMANAGER
+                    </span>
+
+                    <h3>Alerting Engine</h3>
+
+                    <div class="alert-value">
+                        <span class="status-dot"></span>
+                        ONLINE
+                    </div>
+
+                    <p>
+                        Alertmanager receives alerts from Prometheus
+                        and manages notification delivery.
+                    </p>
+
+                    <a
+                        class="outline-button"
+                        href="http://13.50.250.84:9093"
+                        target="_blank">
+                        Open Alertmanager →
+                    </a>
+
+                </article>
+
+
+                <!-- FIRING ALERTS -->
+
+                <article class="alert-card">
+
+                    <span class="metric-label">
+                        ALERTS
+                    </span>
+
+                    <h3>Firing Alerts</h3>
+
+                    <div class="big-number" id="firingAlerts">
+                        0
+                    </div>
+
+                    <p>
+                        Alerts currently firing across the monitored infrastructure.
+                    </p>
+
+                </article>
+
+
+                <!-- TOTAL ALERTS -->
+
+                <article class="alert-card">
+
+                    <span class="metric-label">
+                        ALERT HISTORY
+                    </span>
+
+                    <h3>Total Alerts</h3>
+
+                    <div class="big-number" id="totalAlerts">
+                        0
+                    </div>
+
+                    <p>
+                        Current alerts known to the Alertmanager instance.
+                    </p>
+
+                </article>
+
+
+                <!-- EMAIL -->
+
+                <article class="alert-card">
+
+                    <span class="metric-label">
+                        NOTIFICATIONS
+                    </span>
+
+                    <h3>Email Notifications</h3>
+
+                    <div class="alert-value">
+                        <span class="status-dot"></span>
+                        ENABLED
+                    </div>
+
+                    <p>
+                        Prometheus alert rules can trigger email
+                        notifications through Alertmanager.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= ARCHITECTURE ================= -->
+
+        <section id="architecture" class="section">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <p class="section-label">03 • ARCHITECTURE</p>
+
+                    <h2>Monitoring Architecture</h2>
+
+                    <p>
+                        Production monitoring pipeline from infrastructure
+                        metrics to alerts and notifications.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="architecture">
+
+                <div class="architecture-node">
+
+                    <span class="architecture-number">01</span>
+
+                    <h3>Node Exporter</h3>
+
+                    <p>
+                        Collects CPU, memory, disk and network metrics
+                        from the production server.
+                    </p>
+
+                </div>
+
+
+                <div class="architecture-arrow">
+                    →
+                </div>
+
+
+                <div class="architecture-node">
+
+                    <span class="architecture-number">02</span>
+
+                    <h3>Prometheus</h3>
+
+                    <p>
+                        Scrapes and stores infrastructure metrics
+                        using time-series monitoring.
+                    </p>
+
+                </div>
+
+
+                <div class="architecture-arrow">
+                    →
+                </div>
+
+
+                <div class="architecture-node">
+
+                    <span class="architecture-number">03</span>
+
+                    <h3>Grafana</h3>
+
+                    <p>
+                        Visualizes infrastructure metrics through
+                        interactive monitoring dashboards.
+                    </p>
+
+                </div>
+
+
+                <div class="architecture-arrow">
+                    →
+                </div>
+
+
+                <div class="architecture-node">
+
+                    <span class="architecture-number">04</span>
+
+                    <h3>Alertmanager</h3>
+
+                    <p>
+                        Processes Prometheus alerts and routes
+                        notifications through configured channels.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= TECHNOLOGY STACK ================= -->
+
+        <section id="stack" class="section">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <p class="section-label">04 • TECHNOLOGY</p>
+
+                    <h2>Technology Stack</h2>
+
+                    <p>
+                        Tools used to build the production monitoring
+                        and alerting platform.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="stack-grid">
+
+                <div class="stack-item">
+                    <strong>AWS EC2</strong>
+                    <span>Infrastructure</span>
+                </div>
+
+                <div class="stack-item">
+                    <strong>Docker</strong>
+                    <span>Containerization</span>
+                </div>
+
+                <div class="stack-item">
+                    <strong>Prometheus</strong>
+                    <span>Metrics & Alert Rules</span>
+                </div>
+
+                <div class="stack-item">
+                    <strong>Grafana</strong>
+                    <span>Visualization</span>
+                </div>
+
+                <div class="stack-item">
+                    <strong>Node Exporter</strong>
+                    <span>System Metrics</span>
+                </div>
+
+                <div class="stack-item">
+                    <strong>Alertmanager</strong>
+                    <span>Alert Routing</span>
+                </div>
+
+                <div class="stack-item">
+                    <strong>Nginx</strong>
+                    <span>Web Server</span>
+                </div>
+
+                <div class="stack-item">
+                    <strong>GitHub Actions</strong>
+                    <span>CI/CD</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
         <div>
-          <strong>Automated</strong>
-          <span>CI/CD Deployment</span>
-        </div>
-      </div>
 
-      <div class="stat-card">
-        <div class="stat-icon">🐳</div>
-        <div>
-          <strong>Dockerized</strong>
-          <span>Containerized Application</span>
-        </div>
-      </div>
+            <strong>Production Infrastructure Monitoring</strong>
 
-      <div class="stat-card">
-        <div class="stat-icon">📊</div>
-        <div>
-          <strong>Real-Time</strong>
-          <span>Infrastructure Metrics</span>
-        </div>
-      </div>
+            <p>
+                Observability, monitoring and alerting for production workloads.
+            </p>
 
-      <div class="stat-card">
-        <div class="stat-icon">🔔</div>
-        <div>
-          <strong>Alerting</strong>
-          <span>Proactive Monitoring</span>
-        </div>
-      </div>
-    </section>
-
-    <section id="architecture" class="section">
-      <div class="section-heading">
-        <span>01</span>
-        <div>
-          <h2>Deployment Architecture</h2>
-          <p>From code commit to production deployment.</p>
-        </div>
-      </div>
-
-      <div class="pipeline">
-        <div class="pipeline-step">
-          <div class="number">01</div>
-          <h3>GitHub</h3>
-          <p>Code pushed to the main branch.</p>
         </div>
 
-        <div class="arrow">→</div>
-
-        <div class="pipeline-step">
-          <div class="number">02</div>
-          <h3>GitHub Actions</h3>
-          <p>Build, test and deployment automation.</p>
+        <div class="footer-right">
+            PROMETHEUS • GRAFANA • ALERTMANAGER
         </div>
 
-        <div class="arrow">→</div>
+    </footer>
 
-        <div class="pipeline-step">
-          <div class="number">03</div>
-          <h3>EC2</h3>
-          <p>Application deployed on AWS infrastructure.</p>
-        </div>
 
-        <div class="arrow">→</div>
+    <script src="script.js"></script>
 
-        <div class="pipeline-step">
-          <div class="number">04</div>
-          <h3>Docker</h3>
-          <p>Application runs in isolated containers.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="monitoring" class="section monitoring">
-      <div class="section-heading">
-        <span>02</span>
-        <div>
-          <h2>Infrastructure Monitoring</h2>
-          <p>Observability powered by Prometheus and Grafana.</p>
-        </div>
-      </div>
-
-      <div class="monitor-grid">
-        <div class="monitor-card">
-          <div class="card-top">
-            <span>CPU</span>
-            <span class="live">LIVE</span>
-          </div>
-          <h3>CPU Usage</h3>
-          <p>Track processor utilization in real time.</p>
-        </div>
-
-        <div class="monitor-card">
-          <div class="card-top">
-            <span>MEMORY</span>
-            <span class="live">LIVE</span>
-          </div>
-          <h3>Memory Usage</h3>
-          <p>Monitor available and consumed system memory.</p>
-        </div>
-
-        <div class="monitor-card">
-          <div class="card-top">
-            <span>STORAGE</span>
-            <span class="live">LIVE</span>
-          </div>
-          <h3>Disk Usage</h3>
-          <p>Keep track of filesystem capacity and usage.</p>
-        </div>
-
-        <div class="monitor-card">
-          <div class="card-top">
-            <span>HEALTH</span>
-            <span class="live">LIVE</span>
-          </div>
-          <h3>Node Exporter</h3>
-          <p>Monitor infrastructure health and availability.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="tech-stack">
-      <span>AWS</span>
-      <span>Docker</span>
-      <span>GitHub Actions</span>
-      <span>Nginx</span>
-      <span>Prometheus</span>
-      <span>Grafana</span>
-      <span>Node Exporter</span>
-    </section>
-  </main>
-
-  <footer>
-    <p>Production CI/CD + Monitoring Platform</p>
-    <span>Built with AWS · Docker · GitHub Actions · Prometheus · Grafana</span>
-  </footer>
-
-  <script src="/script.js"></script>
 </body>
+
 </html>

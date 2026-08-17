@@ -1,0 +1,17 @@
+global:
+  resolve_timeout: 5m
+
+  smtp_smarthost: 'smtp.gmail.com:587'
+  smtp_from: 'vanshikasharma49kvm@gmail.com'
+  smtp_auth_username: 'vanshikasharma49kvm@gmail.com'
+  smtp_auth_password: 'mbci pnmc kval cqtx'
+  smtp_require_tls: true
+
+route:
+  receiver: 'email-alerts'
+
+receivers:
+  - name: 'email-alerts'
+    email_configs:
+      - to: 'vanshikasharma49kvm@gmail.com'
+        send_resolved: true
