@@ -1,0 +1,41 @@
+groups:
+  - name: infrastructure-alerts
+    rules:
+
+      - alert: HighCPUUsage
+        expr: |
+          100 - (
+            avg by (instance) (
+              rate(node_cpu_seconds_total{mode="idle"}[5m])
+            ) * 100
+          ) > 80
+        for: 2m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High CPU usage detected"
+          description: "CPU usage on {{ $labels.instance }} has been above 80% for more than 2 minutes."
+
+      - alert: HighMemoryUsage
+        expr: |
+          100 * (
+            1 - (
+              node_memory_MemAvailable_bytes /
+              node_memory_MemTotal_bytes
+            )
+          ) > 80
+        for: 2m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High memory usage detected"
+          description: "Memory usage on {{ $labels.instance }} has been above 80% for more than 2 minutes."
+
+      - alert: NodeExporterDown
+        expr: up{job="node-exporter"} == 0
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Node Exporter is down"
+          description: "Node Exporter on {{ $labels.instance }} is not responding."
